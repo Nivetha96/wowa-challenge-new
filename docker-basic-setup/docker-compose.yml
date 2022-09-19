@@ -1,0 +1,62 @@
+version: '3'
+services:
+  mongodb:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./mongodb
+    container_name: mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=mongodb
+      - MONGO_INITDB_ROOT_PASSWORD=mongodb
+      - MONGO_INITDB_DATABASE=wowa-app-db
+      - MONGODB_USER=mongodb
+      - MONGODB_DATABASE=wowa-app-db
+      - MONGODB_PASS=mongodb
+  nginx:
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./nginx
+    ports:
+      - '80:80'
+    depends_on:
+      - api
+      - client
+  api:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./server
+    volumes:
+      - /app/node_modules
+      - ./server:/app
+    environment:
+      - MONGO_HOST=mongodb
+      - MONGO_PORT=27017
+      - MONGODB_USER=mongodb
+      - MONGODB_DATABASE=wowa-app-db
+      - MONGODB_PASS=mongodb
+    depends_on:
+      - mongodb
+  client:
+    stdin_open: true
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./client
+    ports:
+      - '9229:9229'
+    volumes:
+      - /app/node_modules
+      - ./client:/app
+    depends_on:
+      - api
+
+  mongo-seed:
+    stdin_open: true
+    build:
+      dockerfile: Dockerfile.seed.dev
+      context: ./mongodb/seed
+    links:
+      - mongodb
