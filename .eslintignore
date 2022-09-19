@@ -1,0 +1,11 @@
+frontend/tests/*
+dev.webpack.config.js
+prod.webpack.config.js
+*.test.js
+babel.config.js
+public/*
+legacy/*
+
+# Config files
+tsconfig.json
+jsconfig.json
