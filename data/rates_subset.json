@@ -1,0 +1,27 @@
+[
+  {
+    "monthly payment": 905,
+    "source": "td",
+    "rate": 2.79
+  },
+  {
+    "monthly payment": 978,
+    "source": "duca",
+    "rate": 5.6
+  },
+  {
+    "monthly payment": 186,
+    "source": "cibc",
+    "rate": 2.79
+  },
+  {
+    "monthly payment": 260,
+    "source": "bmo",
+    "rate": 3.16
+  },
+  {
+    "monthly payment": 25,
+    "source": "cmls",
+    "rate": 4.05
+  }
+]

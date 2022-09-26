@@ -3,6 +3,8 @@ module.exports = {
   purge: [
     './pages/**/*.js',
     './pages/**/*.jsx',
+    './pages/*.js',
+    './pages/*.tsx',
     './src/**/*.js',
     './src/**/*.jsx',
     './pages/**/*.ts',

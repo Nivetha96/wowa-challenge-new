@@ -9,6 +9,32 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+/*.left-heading-pane {
+  height: 100%;
+  width:50%; 
+  position: absolute; 
+  z-index: 1;
+  top: 5%; 
+  left: 5%;
+  overflow: hidden;
+  padding-top: 60px; 
+  transition: 0.5s;
+}
+.right-heading-pane{
+  height: 100%;
+  width:30%; 
+  position: absolute; 
+  z-index: 1;
+  top: 5%; 
+  left: 30%;
+  overflow: hidden;
+  padding-top: 60px; 
+  transition: 0.5s;
+}*/
+table{
+  border-collapse: collapse;
+  width:100%;
+}
 a {
   color: inherit;
   text-decoration: none;
